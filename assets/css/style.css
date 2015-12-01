@@ -1,0 +1,22 @@
+#wrapper{
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+#footer {
+  background-color: rgb(230, 225, 142);
+  font-style: italic;
+  font-size: 16px;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+/*forms validation*/
+.ng-invalid.ng-dirty {
+  border-color: rgb(198, 99, 125);
+
+}
+.ng-valid.ng-dirty {
+  border-color: rgb(94, 215, 101);
+}

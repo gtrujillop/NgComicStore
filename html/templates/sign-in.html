@@ -1,0 +1,44 @@
+<h2>Sign In</h2>
+<form name="form" ng-submit="signIn.addUser()">
+  <blockquote>
+    Username:<b> {{signIn.username}}</b>
+  </blockquote>
+  <blockquote>
+    Email: <b>{{signIn.email}}</b>
+  </blockquote>
+  <blockquote>
+    First Name: <b>{{signIn.firstName}}</b>
+  </blockquote>
+  <blockquote>
+    Last Name: <b>{{signIn.lastName}}</b>
+  </blockquote>
+  <div class="form-group" ng-class="">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" class="form-control" ng-model="signIn.username" required />
+      <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+  </div>
+  <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" class="form-control" ng-model="signIn.password" required />
+      <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+  </div>
+  <div class="form-group" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" class="form-control" ng-model="signIn.email" required />
+      <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Email is required</span>
+  </div>
+  <div class="form-group" ng-class="{ 'has-error': form.firstName.$dirty && form.firstName.$error.required }">
+      <label for="firstName">First Name:</label>
+      <input type="text" name="firstName" id="firstName" class="form-control" ng-model="signIn.firstName" required />
+      <span ng-show="form.firstName.$dirty && form.firstName.$error.required" class="help-block">First Name is required</span>
+  </div>
+  <div class="form-group" ng-class="{ 'has-error': form.lastName.$dirty && form.lastName.$error.required }">
+      <label for="lastName">Last Name:</label>
+      <input type="text" name="lastName" id="lastName" class="form-control" ng-model="signIn.lastName" required />
+      <span ng-show="form.lastName.$dirty && form.lastName.$error.required" class="help-block">Last Name is required</span>
+  </div>
+  <div class="form-actions">
+      <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Sign in</button>
+  </div>
+  already an user? <a href="#" ng-click="">log in</a>
+</form>
