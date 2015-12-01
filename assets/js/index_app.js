@@ -6,31 +6,33 @@
       return {
         restrict: 'E',
         templateUrl: '../html/templates/sign-in.html',
-        controller: function($scope){
-          $scope.username = '';
-          $scope.password = '';
-          $scope.email = '';
-          $scope.firstName = '';
-          $scope.lastName = '';
-          $scope.id = 0;
-          $scope.addUser = function(){
-            var users = JSON.parse(LocalStorage['users']);
-            var id = generateId();
+        controller: function(){
+          this.username = '';
+          this.password = '';
+          this.email = '';
+          this.firstName = '';
+          this.lastName = '';
+          this.id = 0;
+          console.log(this.username);
+          this.addUser = function(){
+            var users = JSON.parse(localStorage['users']);
+            var id = this.generateId();
             var newUser = { id: id,
-                            username: username,
-                            password: password,
-                            email: email,
-                            firstName: firstName,
-                            lastName: lastName
+                            username: this.username,
+                            password: this.password,
+                            email: this.email,
+                            firstName: this.firstName,
+                            lastName: this.lastName
                           };
             users.push(newUser);
-            LocalStorage['users'] = users.stringify();
+            localStorage['users'] = JSON.stringify(users);
           };
-          $scope.genereateId = function(){
-            $scope.id = $scope.id ++;
-            return $scope.id;
-          }
-        }
+          this.generateId = function(){
+            this.id = this.id ++;
+            return this.id;
+          };
+        },
+        controllerAs: 'signIn'
       };
     })
 
@@ -38,13 +40,14 @@
       return {
         restrict: 'E',
         templateUrl: '../html/templates/log-in.html',
-        controller: function($scope){
-          $scope.username = '';
-          $scope.password = '';
-          $scope.tryAccess = function(){
+        controller: function(){
+          this.username = '';
+          this.password = '';
+          this.tryAccess = function(){
 
           };
-        }
+        },
+        controllerAs: 'logIn'
       };
     })
 
