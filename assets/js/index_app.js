@@ -9,9 +9,27 @@
         controller: function($scope){
           $scope.username = '';
           $scope.password = '';
-          $scope.register = function(){
-
+          $scope.email = '';
+          $scope.firstName = '';
+          $scope.lastName = '';
+          $scope.id = 0;
+          $scope.addUser = function(){
+            var users = JSON.parse(LocalStorage['users']);
+            var id = generateId();
+            var newUser = { id: id,
+                            username: username,
+                            password: password,
+                            email: email,
+                            firstName: firstName,
+                            lastName: lastName
+                          };
+            users.push(newUser);
+            LocalStorage['users'] = users.stringify();
           };
+          $scope.genereateId = function(){
+            $scope.id = $scope.id ++;
+            return $scope.id;
+          }
         }
       };
     })
